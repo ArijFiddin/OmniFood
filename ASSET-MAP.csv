@@ -1,0 +1,12 @@
+asset,filename,purpose,status
+Brand logo,assets/images/logo/omnifood-logo.svg,Header and footer,Ready
+Brand icon,assets/images/logo/omnifood-icon.svg,App icon and small brand mark,Ready
+Favicon,assets/images/logo/favicon.svg,Browser tab,Ready
+Hero photo,assets/images/hero/hero.webp,Main landing page hero,Ready
+CTA photo,assets/images/cta/cta-woman-eating.webp,CTA image panel,Ready
+Featured wordmarks,assets/images/featured/*.svg,Featured-in row,Text placeholders
+App screens,assets/images/app/app-screen-01.svg to app-screen-03.svg,How-it-works steps,Illustrative mockups
+Customer avatars,assets/images/customers/,Delivered-meals avatar row,Not yet generated
+Meal photos,assets/images/meals/,Japanese Gyozas and Avocado Salad cards,Not yet generated
+Testimonial portraits,assets/images/testimonials/,Four testimonial portraits,Not yet generated
+Gallery photos,assets/images/gallery/,Twelve food gallery images,Not yet generated
