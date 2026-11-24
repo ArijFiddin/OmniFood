@@ -1,0 +1,117 @@
+/* Landing-page responsive refinements. Loaded after the original styles. */
+html { -webkit-text-size-adjust: 100%; }
+img { max-width: 100%; }
+
+@media (max-width: 75em) {
+  .header { padding-inline: 3.2rem; }
+  .hero { max-width: 118rem; gap: 4.8rem; }
+  .testimonials-container { padding: 7.2rem 4.8rem; }
+  .main-nav-list { gap: 2.4rem; }
+}
+
+@media (max-width: 59em) {
+  html { font-size: 62.5%; }
+
+  .header { height: 7.2rem; padding-inline: 2.4rem; position: relative; }
+  .logo { height: 2.5rem; }
+  .btn-mobile-nav { display: block; z-index: 1001; }
+  .main-nav { position: fixed; inset: 0; z-index: 1000; width: 100%; height: 100dvh; padding: 9rem 3.2rem 3.2rem; display: flex; align-items: flex-start; justify-content: center; background: rgba(255, 255, 255, .98); transform: translateX(100%); opacity: 0; visibility: hidden; pointer-events: none; transition: transform .28s ease, opacity .28s ease, visibility .28s; }
+  .nav-open .main-nav { transform: translateX(0); opacity: 1; visibility: visible; pointer-events: auto; }
+  .main-nav-list { width: min(100%, 42rem); flex-direction: column; align-items: stretch; gap: 1.2rem; }
+  .main-nav-link:link, .main-nav-link:visited { display: block; padding: 1.8rem 2rem; border-radius: 1rem; text-align: center; font-size: 2rem; }
+  .main-nav-link.nav-cta:link, .main-nav-link.nav-cta:visited { padding: 1.8rem 2rem; }
+  .nav-open .icon-mobile-nav[name="close-outline"] { display: block; }
+  .nav-open .icon-mobile-nav[name="menu-outline"] { display: none; }
+
+  .section-hero { padding: 5.6rem 0 6.4rem; }
+  .hero { grid-template-columns: 1fr; gap: 4.8rem; padding-inline: 4.8rem; }
+  .hero-text-box, .hero-img-box { text-align: center; }
+  .hero-img { width: min(62rem, 88%); }
+  .hero-description { max-width: 65rem; margin: 0 auto 3.6rem; }
+  .delivered-meals { justify-content: center; margin-top: 4rem; }
+
+  .container { padding-inline: 3.2rem; }
+  .section-how, .section-meals, .section-pricing { padding-block: 7.2rem; }
+  .section-how .grid { grid-template-columns: 1fr; gap: 3.2rem; }
+  .section-how .step-text-box { max-width: 66rem; margin-inline: auto; text-align: center; }
+  .section-how .step-img-box { min-height: 34rem; grid-row: auto !important; transform: none !important; }
+  .section-how .step-img { width: 18rem; position: relative; z-index: 1; }
+  .step-img-box::before { width: 31rem; padding-bottom: 31rem; z-index: 0; }
+  .step-img-box::after { width: 23rem; padding-bottom: 23rem; z-index: 0; }
+  .step-number { font-size: 6.8rem; }
+  .section-testimonials { grid-template-columns: 1fr; }
+  .testimonials-container { padding: 7.2rem 6.4rem; }
+  .gallery { grid-template-columns: repeat(4, 1fr); }
+  .grid--footer { grid-template-columns: repeat(6, 1fr); }
+  .logo-col, .address-col { grid-column: span 3; }
+  .nav-col { grid-column: span 2; grid-row: 1; }
+}
+
+@media (max-width: 44em) {
+  .grid { column-gap: 3.2rem; row-gap: 4.8rem; }
+  .grid--3-cols, .grid--4-cols { grid-template-columns: repeat(2, 1fr); }
+  .section-meals .diets { grid-column: 1 / -1; justify-self: center; }
+  .pricing-plan { width: 100%; }
+  .testimonials-container { padding-inline: 4.8rem; }
+  .cta-text-box { padding: 4.8rem; }
+}
+
+@media (max-width: 34em) {
+  .header { height: 6.4rem; padding-inline: 1.8rem; }
+  .logo { height: 2.2rem; }
+  .icon-mobile-nav { width: 3.4rem; height: 3.4rem; }
+  .main-nav { padding: 8rem 2.4rem 2.4rem; }
+  .main-nav-link:link, .main-nav-link:visited { font-size: 1.9rem; }
+
+  .container { padding-inline: 2.4rem; }
+  .section-hero { padding: 4.4rem 0 5.6rem; }
+  .hero { padding-inline: 2.4rem; gap: 3.2rem; }
+  .heading-primary { font-size: clamp(3.8rem, 10vw, 4.8rem); }
+  .heading-secondary { font-size: 3.2rem; line-height: 1.15; margin-bottom: 3.2rem; }
+  .heading-tertiary { font-size: 2.4rem; margin-bottom: 1.6rem; }
+  .hero-description { font-size: 1.8rem; margin-bottom: 3.2rem; }
+  .hero-text-box .btn { width: 100%; margin: 0 0 1.2rem !important; padding: 1.8rem 1.4rem; }
+  .delivered-meals { flex-direction: column; gap: 1.2rem; margin-top: 3.2rem; }
+  .delivered-text { font-size: 1.6rem; }
+  .hero-img { width: 100%; }
+  .section-featured { padding-block: 3.2rem; }
+  .logos { gap: 1.2rem; align-items: center; overflow: hidden; }
+  .logos img { height: 1.4rem; min-width: 0; }
+
+  .section-how, .section-meals, .section-pricing { padding-block: 5.6rem; }
+  .section-how .grid { gap: 2.4rem; }
+  .section-how .step-img-box { min-height: 29rem; }
+  .section-how .step-img { width: 16rem; }
+  .step-img-box::before { width: 27rem; padding-bottom: 27rem; }
+  .step-img-box::after { width: 20rem; padding-bottom: 20rem; }
+  .step-number { margin-bottom: .8rem; font-size: 5.6rem; }
+  .step-description, .testimonial-text, .feature-text { font-size: 1.7rem; line-height: 1.65; }
+
+  .grid--2-cols, .grid--3-cols, .grid--4-cols { grid-template-columns: 1fr; }
+  .meal-content { padding: 2.4rem; }
+  .meal-title { margin-bottom: 2rem; }
+  .meal-attributes { gap: 1.4rem; }
+  .section-meals .diets { justify-self: stretch; }
+  .all-recipes { font-size: 1.7rem; }
+
+  .testimonials-container { padding: 5.6rem 2.4rem; }
+  .testimonials { grid-template-columns: 1fr; gap: 3.2rem; }
+  .gallery { grid-template-columns: repeat(2, 1fr); gap: .8rem; padding: .8rem; }
+  .pricing-plan--starter, .pricing-plan--complete { padding: 3.2rem 2.4rem; }
+  .pricing-plan--complete::after { top: 5%; right: -22%; font-size: 1.1rem; padding: .7rem 6.5rem; }
+  .plan-header { margin-bottom: 3.2rem; }
+  .plan-sign-up { margin-top: 3.2rem; }
+  .section-cta { padding: 2.4rem 0 6.4rem; }
+  .cta { grid-template-columns: 1fr; }
+  .cta-text-box { padding: 3.2rem 2.4rem; }
+  .cta-img-box { min-height: 28rem; grid-row: 1; }
+  .cta-form { grid-template-columns: 1fr; }
+  .cta-form input, .cta-form select { font-size: 1.6rem; }
+
+  .footer { padding: 6.4rem 0; }
+  .grid--footer { grid-template-columns: repeat(2, 1fr); gap: 4.8rem 2.4rem; }
+  .logo-col, .address-col { grid-column: 1 / -1; }
+  .nav-col { grid-column: auto; grid-row: auto; }
+  .footer-heading { margin-bottom: 2.4rem; }
+  .footer-nav { gap: 1.6rem; }
+}

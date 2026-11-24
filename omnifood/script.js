@@ -33,8 +33,12 @@ const allLinks = document.querySelectorAll('a:link');
 
 allLinks.forEach(function(link) {
     link.addEventListener('click', function(e) {
-        e.preventDefault();
         const href = link.getAttribute('href');
+
+        // Leave page-to-page links (for example recipes.html) to the browser.
+        if (!href || !href.startsWith('#')) return;
+
+        e.preventDefault();
 
         // Scroll back to top
         if (href === '#') window.scrollTo({

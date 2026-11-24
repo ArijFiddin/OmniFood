@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Explore healthy, delicious recipes from Omnifood." />
+    <title>All Recipes | OmniFood</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="assets/images/logo/favicon.svg" />
+    <link rel="stylesheet" href="general.css" />
+    <link rel="stylesheet" href="recipes.css" />
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script defer src="recipes-data.js"></script>
+    <script defer src="recipes-service.js"></script>
+    <script defer src="cart-service.js"></script>
+    <script defer src="recipes.js"></script>
+  </head>
+  <body class="recipes-page">
+    <header class="recipes-header">
+      <a class="recipes-brand" href="index.html" aria-label="Omnifood home">
+        <img src="assets/images/logo/omnifood-logo.svg" alt="Omnifood logo" />
+      </a>
+      <nav class="recipes-nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a class="is-active" href="recipes.html" aria-current="page">Recipes</a>
+        <a href="index.html#how">Meal Plan</a>
+        <a href="index.html#meals">Nutrition</a>
+        <a href="index.html#footer">About</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-button" type="button" data-action="focus-search" aria-label="Search recipes"><ion-icon name="search-outline"></ion-icon></button>
+        <button class="icon-button cart-trigger" type="button" data-action="open-cart" aria-label="Open shopping cart">
+          <ion-icon name="cart-outline"></ion-icon><span class="cart-badge" data-cart-count>0</span>
+        </button>
+        <button class="profile-button" type="button" data-action="profile-menu" aria-expanded="false">
+          <img src="assets/images/customers/customer-01.webp" alt="Alex profile" />
+          <span>Alex</span><ion-icon name="chevron-down-outline"></ion-icon>
+        </button>
+        <button class="mobile-toggle" type="button" data-action="toggle-menu" aria-label="Open navigation" aria-expanded="false"><ion-icon name="menu-outline"></ion-icon></button>
+      </div>
+      <div class="profile-menu" hidden><a href="#">My profile</a><a href="#">My orders</a><button type="button">Sign out</button></div>
+    </header>
+
+    <main>
+      <section class="recipes-hero" aria-labelledby="recipes-title">
+        <div class="recipes-hero__copy">
+          <p class="eyebrow">Explore our recipes</p>
+          <h1 id="recipes-title">All <span>Recipes</span></h1>
+          <p>Discover a variety of healthy, delicious, and easy-to-make meals for your lifestyle.</p>
+        </div>
+        <div class="recipes-hero__image" role="img" aria-label="Healthy chicken and avocado meal"></div>
+      </section>
+
+      <section class="recipes-content" aria-label="Recipe catalog">
+        <div class="catalog-shell">
+          <button class="mobile-filter-button" type="button" data-action="toggle-filters" aria-expanded="false" aria-controls="recipe-filters"><ion-icon name="options-outline"></ion-icon> Filter Recipes</button>
+          <aside class="filter-panel" id="recipe-filters" aria-label="Filter recipes">
+            <div class="filter-heading"><span><ion-icon name="options-outline"></ion-icon>Filter Recipes</span><button type="button" data-action="reset-filters">Reset</button></div>
+
+            <fieldset class="filter-group">
+              <legend>Category <ion-icon name="chevron-down-outline"></ion-icon></legend>
+              <label><input type="checkbox" name="category" value="All" checked /><span>All Recipes <b data-category-count="All">(24)</b></span></label>
+              <label><input type="checkbox" name="category" value="Breakfast" /><span>Breakfast <b data-category-count="Breakfast">(6)</b></span></label>
+              <label><input type="checkbox" name="category" value="Lunch" /><span>Lunch <b data-category-count="Lunch">(7)</b></span></label>
+              <label><input type="checkbox" name="category" value="Dinner" /><span>Dinner <b data-category-count="Dinner">(6)</b></span></label>
+              <label><input type="checkbox" name="category" value="Snack" /><span>Snack <b data-category-count="Snack">(5)</b></span></label>
+            </fieldset>
+
+            <fieldset class="filter-group price-group">
+              <legend>Price Range <ion-icon name="chevron-down-outline"></ion-icon></legend>
+              <div class="range-control" aria-label="Price range">
+                <div class="range-track"><span></span></div>
+                <input type="range" min="20000" max="100000" step="5000" value="20000" data-price="min" aria-label="Minimum price" />
+                <input type="range" min="20000" max="100000" step="5000" value="100000" data-price="max" aria-label="Maximum price" />
+              </div>
+              <p class="range-values"><span data-min-price>Rp20.000</span><span>—</span><span data-max-price>Rp100.000</span></p>
+            </fieldset>
+
+            <fieldset class="filter-group">
+              <legend>Calories <ion-icon name="chevron-down-outline"></ion-icon></legend>
+              <label><input type="checkbox" name="calories" value="under-300" /><span>Under 300 kcal <b>(8)</b></span></label>
+              <label><input type="checkbox" name="calories" value="300-500" /><span>300 – 500 kcal <b>(10)</b></span></label>
+              <label><input type="checkbox" name="calories" value="above-500" /><span>Above 500 kcal <b>(6)</b></span></label>
+            </fieldset>
+
+            <fieldset class="filter-group filter-group--last">
+              <legend>Diet Type <ion-icon name="chevron-down-outline"></ion-icon></legend>
+              <label><input type="checkbox" name="diet" value="High Protein" /><span>High Protein <b>(9)</b></span></label>
+              <label><input type="checkbox" name="diet" value="Low Carb" /><span>Low Carb <b>(7)</b></span></label>
+              <label><input type="checkbox" name="diet" value="Vegetarian" /><span>Vegetarian <b>(6)</b></span></label>
+              <label><input type="checkbox" name="diet" value="Gluten Free" /><span>Gluten Free <b>(4)</b></span></label>
+            </fieldset>
+          </aside>
+
+          <div class="catalog-area">
+            <div class="catalog-toolbar">
+              <label class="search-box"><ion-icon name="search-outline"></ion-icon><input type="search" data-search placeholder="Search recipes (e.g. chicken bowl, salad, gyoza...)" autocomplete="off" /></label>
+              <label class="sort-control">Sort by:
+                <select data-sort aria-label="Sort recipes">
+                  <option value="popular">Most Popular</option><option value="newest">Newest</option><option value="price-asc">Price: Low to High</option><option value="price-desc">Price: High to Low</option><option value="calories-asc">Calories: Low to High</option>
+                </select>
+              </label>
+            </div>
+            <p class="recipe-count" data-recipe-count>24 Recipes Found</p>
+            <div class="recipe-grid" data-recipe-grid></div>
+            <div class="empty-state" data-empty-state hidden><ion-icon name="search-outline"></ion-icon><h2>No recipes found</h2><p>Try changing your search or filters.</p><button type="button" data-action="reset-filters">Clear filters</button></div>
+            <nav class="pagination" data-pagination aria-label="Recipe pages"></nav>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <aside class="cart-drawer" data-cart-drawer aria-label="Shopping cart" aria-hidden="true">
+      <div class="drawer-header"><h2>Your cart</h2><button class="icon-button" type="button" data-action="close-cart" aria-label="Close cart"><ion-icon name="close-outline"></ion-icon></button></div>
+      <div class="cart-items" data-cart-items></div>
+      <div class="cart-empty" data-cart-empty><ion-icon name="bag-handle-outline"></ion-icon><p>Your cart is empty.</p><span>Add a delicious recipe to get started.</span></div>
+      <div class="cart-summary" data-cart-summary hidden><div><span>Subtotal</span><strong data-cart-total>Rp0</strong></div><button type="button" data-action="checkout">Checkout</button></div>
+    </aside>
+    <div class="drawer-backdrop" data-drawer-backdrop></div>
+    <div class="toast" data-toast role="status" aria-live="polite"></div>
+  </body>
+</html>
